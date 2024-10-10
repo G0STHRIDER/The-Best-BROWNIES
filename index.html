@@ -15,82 +15,81 @@
             <div class="brownie">
                 <h3>Brownie Clásico</h3>
                 <p>Precio: $15</p>
-                <input type="number" id="cantidad_clasico" placeholder="Cantidad" min="0">
+                <input type="number" id="cantidad_clasico" placeholder="Cantidad" min="0" onchange="calcularTotal()">
             </div>
         </div>
+
         <div class="brownie-container">
             <img src="brownie-nutella.jpg" alt="Brownie Nutella" class="brownie-img">
             <div class="brownie">
                 <h3>Brownie Nutella</h3>
                 <p>Precio: $20</p>
-                <input type="number" id="cantidad_nutella" placeholder="Cantidad" min="0">
-            </div>
-        </div>
-        <div class="brownie-container">
-<img src="brownie-crema.jpg" alt="Brownie Crema de Cacahuate" class="brownie-img">
-            <div class="brownie">
-                <h3>Brownie Crema de Cacahuate</h3>
-                <p>Precio: $20</p>
-                <input type="number" id="cantidad_cacahuate" placeholder="Cantidad" min="0">
+                <input type="number" id="cantidad_nutella" placeholder="Cantidad" min="0" onchange="calcularTotal()">
             </div>
         </div>
 
-        <h3>✨ Selecciona Toppings (puedes elegir varios)</h3>
+        <div class="brownie-container">
+            <img src="brownie-crema.jpg" alt="Brownie Crema de Cacahuate" class="brownie-img">
+            <div class="brownie">
+                <h3>Brownie Crema de Cacahuate</h3>
+                <p>Precio: $20</p>
+                <input type="number" id="cantidad_cacahuate" placeholder="Cantidad" min="0" onchange="calcularTotal()">
+            </div>
+        </div>
+
+        <h3>✨ Selecciona Toppings (puedes elegir uno por brownie)</h3>
         <div class="toppings">
-            <div>
-                <h4>Brownie Nutella:</h4>
-                <label>
-                    <input type="checkbox" class="topping_nutella" value="nuez">
-                    Nuez
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_nutella" value="almendra">
-                    Almendra
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_nutella" value="snickers">
-                    Snickers
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_nutella" value="carlosv">
-                    Carlos V
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_nutella" value="milkyway">
-                    Milky Way
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_nutella" value="bubulubu">
-                    Bubulubu
-                </label>
-            </div>
-            <div>
-                <h4>Brownie Crema de Cacahuate:</h4>
-                <label>
-                    <input type="checkbox" class="topping_cacahuate" value="nuez">
-                    Nuez
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_cacahuate" value="almendra">
-                    Almendra
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_cacahuate" value="snickers">
-                    Snickers
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_cacahuate" value="carlosv">
-                    Carlos V
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_cacahuate" value="milkyway">
-                    Milky Way
-                </label><br>
-                <label>
-                    <input type="checkbox" class="topping_cacahuate" value="bubulubu">
-                    Bubulubu
-                </label>
-            </div>
+            <h4>Brownie Nutella:</h4>
+            <label>
+                <input type="checkbox" class="topping_nutella" value="nuez" onchange="calcularTotal()">
+                Nuez
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_nutella" value="almendra" onchange="calcularTotal()">
+                Almendra
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_nutella" value="snickers" onchange="calcularTotal()">
+                Snickers
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_nutella" value="carlosv" onchange="calcularTotal()">
+                Carlos V
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_nutella" value="milkyway" onchange="calcularTotal()">
+                Milky Way
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_nutella" value="bubulubu" onchange="calcularTotal()">
+                Bubulubu
+            </label>
+
+            <h4>Brownie Crema de Cacahuate:</h4>
+            <label>
+                <input type="checkbox" class="topping_cacahuate" value="nuez" onchange="calcularTotal()">
+                Nuez
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_cacahuate" value="almendra" onchange="calcularTotal()">
+                Almendra
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_cacahuate" value="snickers" onchange="calcularTotal()">
+                Snickers
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_cacahuate" value="carlosv" onchange="calcularTotal()">
+                Carlos V
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_cacahuate" value="milkyway" onchange="calcularTotal()">
+                Milky Way
+            </label><br>
+            <label>
+                <input type="checkbox" class="topping_cacahuate" value="bubulubu" onchange="calcularTotal()">
+                Bubulubu
+            </label>
         </div>
 
         <h3>Dirección para el envío:</h3>
@@ -106,11 +105,11 @@
 
         <h3>Envío a domicilio:</h3>
         <label>
-            <input type="checkbox" id="envio"> Envío ($20)
+            <input type="checkbox" id="envio" onchange="calcularTotal()"> Envío ($20)
         </label>
 
         <h3>Total: $<span id="total">0</span></h3>
-        <button id="pedido">Enviar Pedido por WhatsApp</button>
+        <button id="pedido" onclick="enviarWhatsApp()">Enviar Pedido por WhatsApp</button>
     </div>
 
     <script src="script.js"></script>
