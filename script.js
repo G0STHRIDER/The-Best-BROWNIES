@@ -1,68 +1,67 @@
-// Función para calcular el total
-function calcularTotal() {
-    // Obtener cantidades de brownies
-    const cantidadClasico = parseInt(document.getElementById('cantidad_clasico').value) || 0;
-    const cantidadNutella = parseInt(document.getElementById('cantidad_nutella').value) || 0;
-    const cantidadCacahuate = parseInt(document.getElementById('cantidad_cacahuate').value) || 0;
+document.addEventListener('DOMContentLoaded', function () {
+    // Variables
+    const cantidadClasico = document.getElementById('cantidad_clasico');
+    const cantidadNutella = document.getElementById('cantidad_nutella');
+    const cantidadCacahuate = document.getElementById('cantidad_cacahuate');
+    const envioCheckbox = document.getElementById('envio');
+    const totalSpan = document.getElementById('total');
+    const numeroCuentaDiv = document.getElementById('numero_cuenta');
+    const pagoTarjeta = document.getElementById('pago_tarjeta');
 
-    // Precios
-    const precioClasico = 15;
-    const precioNutella = 20;
-    const precioCacahuate = 20;
-    const precioTopping = 5;
-    const costoEnvio = document.getElementById('envio').checked ? 20 : 0;
+    // Función para calcular el total
+    function calcularTotal() {
+        const precioClasico = 15;
+        const precioNutella = 20;
+        const precioCacahuate = 20;
+        let total = 0;
 
-    // Calcular subtotal de brownies
-    const subtotal = (cantidadClasico * precioClasico) + (cantidadNutella * precioNutella) + (cantidadCacahuate * precioCacahuate);
-    
-    // Calcular total de toppings
-    let totalToppings = 0;
-    
-    // Sumar toppings para Nutella
-    const toppingsNutella = document.querySelectorAll('.topping_nutella:checked');
-    totalToppings += toppingsNutella.length * precioTopping;
+        total += precioClasico * (cantidadClasico.value || 0);
+        total += precioNutella * (cantidadNutella.value || 0);
+        total += precioCacahuate * (cantidadCacahuate.value || 0);
 
-    // Sumar toppings para Crema de Cacahuate
-    const toppingsCacahuate = document.querySelectorAll('.topping_cacahuate:checked');
-    totalToppings += toppingsCacahuate.length * precioTopping;
+        if (envioCheckbox.checked) {
+            total += 20; // Costo de envío
+        }
 
-    // Calcular total
-    const total = subtotal + totalToppings + costoEnvio;
+        totalSpan.textContent = total;
+    }
 
-    // Actualizar total en el HTML
-    document.getElementById('total').innerText = total;
-}
+    // Eventos para inputs
+    cantidadClasico.addEventListener('input', calcularTotal);
+    cantidadNutella.addEventListener('input', calcularTotal);
+    cantidadCacahuate.addEventListener('input', calcularTotal);
+    envioCheckbox.addEventListener('change', calcularTotal);
 
-// Función para enviar pedido por WhatsApp
-function enviarPedido() {
-    const cantidadClasico = document.getElementById('cantidad_clasico').value;
-    const cantidadNutella = document.getElementById('cantidad_nutella').value;
-    const cantidadCacahuate = document.getElementById('cantidad_cacahuate').value;
-    const direccion = document.getElementById('direccion').value;
-    const envio = document.getElementById('envio').checked ? "Sí" : "No";
-    const metodoPago = document.querySelector('input[name="pago"]:checked').value;
-
-    const mensaje = `Hola, quiero hacer un pedido:\n\n` +
-                    `Brownie Clásico: ${cantidadClasico}\n` +
-                    `Brownie Nutella: ${cantidadNutella}\n` +
-                    `Brownie Crema de Cacahuate: ${cantidadCacahuate}\n` +
-                    `Dirección: ${direccion}\n` +
-                    `Envío a domicilio: ${envio}\n` +
-                    `Método de pago: ${metodoPago}\n` +
-                    `Total: $${document.getElementById('total').innerText}`;
-
-    const numeroWhatsApp = "528641003379"; // Tu número de WhatsApp
-    const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-    // Abrir enlace de WhatsApp
-    window.open(linkWhatsApp, '_blank');
-}
-
-// Event listeners para calcular el total automáticamente
-document.querySelectorAll('input[type="number"], .topping_nutella, .topping_cacahuate, #envio')
-    .forEach(input => {
-        input.addEventListener('change', calcularTotal);
+    // Evento para el método de pago
+    const radiosPago = document.querySelectorAll('input[name="pago"]');
+    radiosPago.forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (pagoTarjeta.checked) {
+                numeroCuentaDiv.style.display = 'block'; // Mostrar número de cuenta
+            } else {
+                numeroCuentaDiv.style.display = 'none'; // Ocultar número de cuenta
+            }
+        });
     });
 
-// Event listener para el botón de enviar pedido
-document.getElementById('pedido').addEventListener('click', enviarPedido);
+    // Evento para enviar el pedido por WhatsApp
+    document.getElementById('pedido').addEventListener('click', function () {
+        const direccion = document.getElementById('direccion').value;
+        const metodoPago = document.querySelector('input[name="pago"]:checked').value;
+        const cantidadClasicoVal = cantidadClasico.value;
+        const cantidadNutellaVal = cantidadNutella.value;
+        const cantidadCacahuateVal = cantidadCacahuate.value;
+
+        let mensaje = `¡Hola! Quiero hacer un pedido de:\n`;
+        mensaje += `- Brownie Clásico: ${cantidadClasicoVal}\n`;
+        mensaje += `- Brownie Nutella: ${cantidadNutellaVal}\n`;
+        mensaje += `- Brownie Crema de Cacahuate: ${cantidadCacahuateVal}\n`;
+        mensaje += `Dirección: ${direccion}\n`;
+        mensaje += `Método de Pago: ${metodoPago}\n`;
+        mensaje += `Total: $${totalSpan.textContent}`;
+
+        const numeroWhatsApp = '528641003379';
+        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+    });
+});

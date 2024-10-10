@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f0f8; /* Color de fondo pastel */
+    background-color: #ffe4e1; /* Color de fondo rosa pastel */
     color: #333;
     margin: 0;
     padding: 0;
@@ -37,11 +37,14 @@ body {
 }
 
 h1, h3, h4 {
-    color: #6a5acd; /* Color pastel para encabezados */
+    color: #d2691e; /* Color pastel para encabezados */
+    background-color: #ffe4e1; /* Fondo rosa pastel para los encabezados */
+    padding: 5px; /* Espaciado interno para los encabezados */
+    border-radius: 5px; /* Bordes redondeados para los encabezados */
 }
 
 button {
-    background-color: #6a5acd; /* Color de fondo del botón */
+    background-color: #d2691e; /* Color de fondo del botón */
     color: white; /* Color del texto del botón */
     padding: 10px 20px;
     border: none;
@@ -50,6 +53,13 @@ button {
 }
 
 button:hover {
-    background-color: #5b4cbf; /* Color más oscuro al pasar el mouse */
+    background-color: #b05e1e; /* Color más oscuro al pasar el mouse */
 }
 
+.cuenta {
+    background-color: #fff8dc; /* Color de fondo para la cuenta */
+    border: 1px solid #d2691e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
