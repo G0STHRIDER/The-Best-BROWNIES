@@ -1,65 +1,59 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffe4e1; /* Color de fondo rosa pastel */
-    color: #333;
+    background-color: #b2ffb2; /* Fondo verde pastel */
+    color: black; /* Color negro para el texto */
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
+    max-width: 600px; /* Ancho máximo para dispositivos móviles */
     margin: auto;
     padding: 20px;
-    background-color: #fff; /* Fondo blanco para el contenido */
+    background-color: #ffb2d1; /* Fondo rosa pastel para el contenido */
+    border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Bordes redondeados */
 }
 
 .brownie-container {
     display: flex;
-    align-items: center;
-    margin: 15px 0;
+    justify-content: space-between; /* Espacio entre imagen y texto */
+    align-items: center; /* Centrar verticalmente */
+    margin: 10px 0; /* Margen entre cada brownie */
 }
 
 .brownie-img {
-    width: 100px; /* Ajusta según sea necesario */
-    height: auto;
-    margin-right: 20px; /* Espacio entre imagen y texto */
+    max-width: 80px; /* Tamaño de imagen más pequeño para móviles */
+    margin-right: 10px; /* Espacio entre imagen y texto */
 }
 
 .brownie {
-    flex: 1;
+    flex-grow: 1; /* Para ocupar el espacio restante */
 }
 
 .toppings {
-    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
 
-h1, h3, h4 {
-    color: #d2691e; /* Color pastel para encabezados */
-    background-color: #ffe4e1; /* Fondo rosa pastel para los encabezados */
-    padding: 5px; /* Espaciado interno para los encabezados */
-    border-radius: 5px; /* Bordes redondeados para los encabezados */
+label {
+    margin-bottom: 5px; /* Espacio entre los checkboxes */
 }
 
-button {
-    background-color: #d2691e; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    padding: 10px 20px;
+h3 {
+    margin-top: 20px; /* Espacio superior */
+}
+
+#pedido {
+    background-color: #ff4081; /* Color llamativo para el botón */
+    color: white;
     border: none;
-    border-radius: 5px; /* Bordes redondeados para el botón */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-}
-
-button:hover {
-    background-color: #b05e1e; /* Color más oscuro al pasar el mouse */
-}
-
-.cuenta {
-    background-color: #fff8dc; /* Color de fondo para la cuenta */
-    border: 1px solid #d2691e;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 5px;
-    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+#pedido:hover {
+    background-color: #f50057; /* Color al pasar el mouse */
 }
