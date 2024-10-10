@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Repostería - Brownies</title>
+</head>
+<body>
+    <div class="container">
+        <h1>🍫 Brownies Deliciosos 🍰</h1>
+
+        <div class="brownie-container">
+            <img src="brownie-clasico.jpeg" alt="Brownie Clásico" class="brownie-img">
+            <div class="brownie">
+                <h3>Brownie Clásico</h3>
+                <p>Precio: $15</p>
+                <input type="number" id="cantidad_clasico" placeholder="Cantidad" min="0">
+            </div>
+            <img src="brownie-nutella.jpg" alt="Brownie Nutella" class="brownie-img">
+            <div class="brownie">
+                <h3>Brownie Nutella</h3>
+                <p>Precio: $20</p>
+                <input type="number" id="cantidad_nutella" placeholder="Cantidad" min="0">
+            </div>
+        </div>
+
+        <div class="brownie-container">
+ <img src="brownie-crema.jpg" alt="Brownie Crema de Cacahuate" class="brownie-img">
+            <div class="brownie">
+                <h3>Brownie Crema de Cacahuate</h3>
+                <p>Precio: $20</p>
+                <input type="number" id="cantidad_cacahuate" placeholder="Cantidad" min="0">
+            </div>
+        </div>
+
+        <h3>✨ Selecciona Toppings (puedes elegir varios)</h3>
+        <div class="toppings">
+            <div>
+                <h4>Brownie Nutella:</h4>
+                <label>
+                    <input type="checkbox" class="topping_nutella" value="nuez">
+                    Nuez ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_nutella" value="almendra">
+                    Almendra ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_nutella" value="snickers">
+                    Snickers ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_nutella" value="carlosv">
+                    Carlos V ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_nutella" value="milkyway">
+                    Milky Way ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_nutella" value="bubulubu">
+                    Bubulubu ($5)
+                </label>
+            </div>
+            <div>
+                <h4>Brownie Crema de Cacahuate:</h4>
+                <label>
+                    <input type="checkbox" class="topping_cacahuate" value="nuez">
+                    Nuez ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_cacahuate" value="almendra">
+                    Almendra ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_cacahuate" value="snickers">
+                    Snickers ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_cacahuate" value="carlosv">
+                    Carlos V ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_cacahuate" value="milkyway">
+                    Milky Way ($5)
+                </label><br>
+                <label>
+                    <input type="checkbox" class="topping_cacahuate" value="bubulubu">
+                    Bubulubu ($5)
+                </label>
+            </div>
+        </div>
+
+        <h3>Dirección para el envío:</h3>
+        <input type="text" id="direccion" placeholder="Introduce tu dirección">
+
+        <h3>Método de Pago:</h3>
+        <label>
+            <input type="radio" name="pago" value="tarjeta" checked> Tarjeta
+        </label>
+        <label>
+            <input type="radio" name="pago" value="efectivo"> Efectivo
+        </label>
+
+        <h3>Envío a domicilio:</h3>
+        <label>
+            <input type="checkbox" id="envio"> Envío ($20)
+        </label>
+
+        <h3>Total: $<span id="total">0</span></h3>
+        <button id="pedido">Enviar Pedido por WhatsApp</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
